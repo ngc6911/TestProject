@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="record"
+            type="com.test.testproject.presentation.model.RecordModel"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentPadding="@dimen/goods_card_padding"
+        style="@style/Base.CardView"
+        android:layout_marginBottom="@dimen/goods_card_padding"
+        app:cardCornerRadius="4dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgv_good_photo"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                binding:picassoMain="@{record.productImage}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txv_good_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="@dimen/goods_card_padding"
+                    app:layout_constraintBottom_toTopOf="@id/txv_good_price"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/imgv_good_photo"
+                    android:text="@{record.productName}"
+                    tools:text="@sample/samplegood.json/data/txv_good_name"/>
+
+                <TextView
+                    android:id="@+id/txv_good_price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                    android:textStyle="bold"
+
+                    android:layout_marginStart="@dimen/goods_card_padding"
+                    app:layout_constraintLeft_toRightOf="@id/imgv_good_photo"
+                    app:layout_constraintBottom_toTopOf="@id/txv_shop_name"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txv_good_name"
+                    android:text="@{String.format(@string/format_price, record.price)}"
+                    tools:text="@sample/samplegood.json/data/txv_good_price"/>
+
+                <TextView
+                    android:id="@+id/txv_shop_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+
+                    android:layout_marginStart="@dimen/goods_card_padding"
+                    app:layout_constraintLeft_toRightOf="@id/imgv_good_photo"
+                    app:layout_constraintRight_toLeftOf="@id/imgv_shop_logo_container"
+                    app:layout_constraintTop_toBottomOf="@id/txv_good_price"
+                    app:layout_constraintTop_toTopOf="@id/imgv_shop_logo_container"
+
+                    android:text="@{record.shopName}"
+                    tools:text="@sample/samplegood.json/data/txv_shop_name"/>
+
+                <FrameLayout
+                    android:id="@+id/imgv_shop_logo_container"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+                    <ImageView
+                        android:id="@+id/imgv_shop_logo"
+                        android:layout_margin="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        binding:picassoCircle="@{record.shopLogo}"/>
+
+                    <ProgressBar
+                        android:id="@+id/pb_rank"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:progress="@{(int) record.shopRank}"
+                        android:max="1000"
+                        android:progressDrawable="@drawable/shop_rank_progress_drawable"
+                        android:indeterminate="false"
+                        android:indeterminateOnly="false" />
+                </FrameLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>

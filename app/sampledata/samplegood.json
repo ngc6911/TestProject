@@ -1,0 +1,10 @@
+{
+  "data" :[
+    {"txv_good_name": "Some good 1", "txv_good_price" : 1.35, "txv_shop_name" : "Someshop 1"},
+    {"txv_good_name": "Some good 2", "txv_good_price" : 21.35, "txv_shop_name" : "Someshop 2"},
+    {"txv_good_name": "Some good 3", "txv_good_price" : 3.45, "txv_shop_name" : "Someshop 2"},
+    {"txv_good_name": "Some good 4", "txv_good_price" : 7.5, "txv_shop_name" : "Someshop 1"},
+    {"txv_good_name": "Some good 5", "txv_good_price" : 1.5, "txv_shop_name" : "Someshop 1"},
+    {"txv_good_name": "Some good 6", "txv_good_price" : 1.3, "txv_shop_name" : "Someshop 3"}
+  ]
+}

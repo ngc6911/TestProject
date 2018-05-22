@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TestProject</string>
+    <string name="format_price">$%.2f</string>
+</resources>
